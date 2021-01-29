@@ -8,7 +8,7 @@
         "blue-light": { "1565f0": 267648255, "1ddce6": 806093568 },
         "green-cyan": { "5fd192": 267648255, "70f17a": 806093568 },
         "pastel2": { "#bc3a36": 267648255, "#4a518a": 806093568 },
-        "blue-ish": { "#4a51b4": 267648255 , "6469f2": 806093568 }
+        "blue-ish": { "#4a51b4": 267648255 , "#6890f6": 806093568 }
     },
     "fonts": {
         "hr": { "source": "./fonts/hr.npy", "block-offset":[240, 100], "default-pallet": "gray-red" },
