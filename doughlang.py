@@ -59,11 +59,7 @@ def loadres():
     
     invalid_responses = tuple(obj["invalid-responses"])
 
-    if obj["token"] == "":
-        print("you need to add your bot token to config.json")
-        exit()
-    else:
-        return obj["token"]
+    return os.environ["token"]
 
 def makeimg(block_masks, font, color_pallet):
     def draw_block(font_mask, target_pixels, offset, mask, color): # todo: implement this in c++
