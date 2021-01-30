@@ -207,7 +207,6 @@ async def dl(ctx, text: str, font=None, color_pallette=None):
         bread_len += len(bread_split[i])
     norm_split = text.split("/")
     alt_split = text.split(",")
-    print(bread_split, bread_len, len(norm_split), len(alt_split))
 
     if bread_len >= max(len(norm_split), len(alt_split)):
         # bread mode
@@ -246,7 +245,6 @@ async def dl(ctx, text: str, font=None, color_pallette=None):
                     else:
                         blocks.append(glyph_map_numbers[int(b[:-2]) + 512])
                 else: blocks.append(glyph_map_numbers[int(b)])
-    print(blocks)
     arr = io.BytesIO()
     makeimg(blocks, font, color_pallette).save(arr, "png")
     arr.seek(0)
