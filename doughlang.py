@@ -230,7 +230,7 @@ async def sha(ctx, text: str):
             else:
                 response = "BAD"
     
-    await ctx.send(f"{response} {link}")
+    await ctx.send(f"{response} {link}\n{response.status}")
 
 
 @bot.command(name="fonts")
