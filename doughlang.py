@@ -226,11 +226,11 @@ async def sha(ctx, text: str):
         async with session.get(link) as response:
             html = await response.text()
             if response.status == 200 and get_hash(html) not in invalid_sha_responses:
-                response = "GOOD"
+                response_t = "GOOD"
             else:
-                response = "BAD"
+                response_t = "BAD"
     
-    await ctx.send(f"{response} {link}\n{response.status}")
+    await ctx.send(f"{response_t} {link}\n{response.status}")
 
 
 @bot.command(name="fonts")
