@@ -226,9 +226,9 @@ async def sha(ctx, text: str):
         async with session.get(link) as response:
             html = await response.text()
             if response.status == 200 and get_hash(html) not in invalid_sha_responses:
-                response = "OK"
+                response = "GOOD"
             else:
-                response = f"BAD {response.status}"
+                response = "BAD"
     
     await ctx.send(f"{response} {link}")
 
