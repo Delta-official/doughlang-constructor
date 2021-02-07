@@ -198,6 +198,12 @@ async def sha(msg, content, chain=None):
 
     elif not chain:
         await msg.send(f"BAD {response.status} {link}")
+        
+async def binary(msg, content):
+    if content != 0:
+        ''.join(map(bin,bytearray(content,'utf8')))
+    else:
+        await msg.send("There aren't any characters to convert.")
 
 async def colors(msg):
     def color_hex(num):
@@ -285,11 +291,13 @@ class DoughClient(discord.Client):
         
         elif words[0]=="help":
             await message.channel.send('''```Commands:
-  {p}dl message [font/color] [color] - draws bre-ish
-  {p}sha message - calculates sha256 sum of the message
+  {p}dl <string> [font/color] [color] - draws bre-ish
+  {p}sha <string> - calculates sha256 sum of the message
   {p}fonts - prints available fonts
   {p}colors - prints available colors
+  {p}binary <string> - converts input to binary and prints the output
   {p}help - prints this information```'''.format(p=g_config["prefix"]))
+        
         elif words[0]=="fonts":
             response = "```Available fonts:"
             for name in g_config["fonts"]:
@@ -298,6 +306,10 @@ class DoughClient(discord.Client):
         
         elif words[0]=="colors":
             await colors(message.channel)
+            
+        elif words[0] == "binary":
+            if argc == 1:
+                await binary(message.channel, words[1])
         
         elif words[0]=="reload" and authorized:
             load_config()
