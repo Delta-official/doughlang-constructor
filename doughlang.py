@@ -180,12 +180,12 @@ async def sha(msg, content, chain=None):
     response = await g_session.get(link)
     page = await response.text()
     if response.status == 200 and get_sha256(page) not in g_config["invalid_sha_responses"]:
-        if chain=="page":
-            await msg.send(f"The sha of the previous page resulted in another page! {link}")
-        elif chain=="image":
-            await msg.send(f"The sha of the image on the previous page resulted in another page! {link}")
-        else:
-            await msg.send(f"GOOD {link}")
+        #if chain=="page":
+            #await msg.send(f"The sha of the previous page resulted in another page! {link}")
+        #elif chain=="image":
+            #await msg.send(f"The sha of the image on the previous page resulted in another page! {link}")
+        #else:
+        await msg.send(f"GOOD {link}")
         await sha(msg, page, "page")
         png_image_fingerprint = "<img src=\'data:image/png;base64,"
         begin = page.find(png_image_fingerprint)
